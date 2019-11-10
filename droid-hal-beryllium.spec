@@ -11,21 +11,38 @@
 %define installable_zip 1
 
 %define straggler_files \
+/acct \
+/cache \
+/config \
 /d \
+/data \
+/dev \
+/mnt \
+/odm \
+/oem \
+/proc \
+/res \
+/storage \
+/sys \
+/system \
+/vendor \
 /bt_firmware \
 /bugreports \
-/cache \
 /charger \
 /default.prop \
-/d \
 /dsp \
 /etc \
 /firmware \
-/odm \
 /persist \
 /product \
 /sdcard \
 %{nil}
+
+%define android_config \
+  #define WANT_ADRENO_QUIRKS 1 \
+%{nil}
+
+%define makefstab_skip_entries /sys/fs/pstore
 
 %include rpm/dhd/droid-hal-device.inc
 
